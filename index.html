@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Золотий на чорному</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #d4af37;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            min-height: 100vh;
+            line-height: 1.4; /* трохи поправив line-height */
+            background-image:
+                url('https://uploads.onecompiler.io/44as4qwkq/44as44gm7/image0.jpeg'),
+                linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.85) 60%);
+            background-repeat: no-repeat;
+            background-position: center 10vh;
+            background-size: auto 20vh, cover;
+            background-attachment: fixed;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.75);
+            padding: 1.2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #d4af37;
+        }
+
+        nav a {
+            color: #d4af37;
+            text-decoration: none;
+            margin: 0 1.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #f5d76e;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10rem 2rem 6rem;
+            position: relative;
+            z-index: 20;
+        }
+
+        section {
+            display: none;
+        }
+
+        #home {
+            display: block;
+        }
+
+        h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin: 2rem 0 1rem;
+            color: #f5d76e;
+        }
+
+        p, li {
+            font-size: 1.15rem;
+            max-width: 75ch;
+            margin: 0 auto 1.2rem;
+            color: #e0c070;
+        }
+
+        .highlight {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        /* ─── НЕОНОВИЙ ПЕРЕЛИВЧАСТИЙ ТЕКСТ ─── */
+        .neon-rainbow {
+            font-size: 1,5rem;               /* збільшив для ефекту */
+            font-weight: 200;
+            background: linear-gradient(90deg, #ff00cc, #ffcc00, #33ff00, #00ccff, #cc00ff, #ff00cc);
+            background-size: 100% 100%;      /* для плавного руху */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 
+                0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #fff,
+                0 0 42px #ff00cc,
+                0 0 82px #ff00cc,
+                0 0 92px #ff00cc,
+                0 0 102px #ff00cc,
+                0 0 151px #ff00cc;
+            animation: 
+                rainbowFlow 4s linear infinite,   /* переливання кольорів */
+                neonPulse 1s ease-in-out infinite alternate; /* пульсація сяйва */
+        }
+
+        @keyframes rainbowFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes neonPulse {
+            from {
+                text-shadow: 
+                    0 0 5px #fff,
+                    0 0 8px #fff,
+                    0 0 15px #fff,
+                    0 0 30px #ff00cc,
+                    0 0 60px #ff00cc;
+            }
+            to {
+                text-shadow: 
+                    0 0 10px #fff,
+                    0 0 20px #fff,
+                    0 0 30px #fff,
+                    0 0 60px #ff00cc,
+                    0 0 90px #ff00cc,
+                    0 0 120px #ff00cc;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body { background-size: auto 18vh, cover; }
+            .neon-rainbow { font-size: 1.8rem; }
+            main { padding-top: 8rem; }
+            h1 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a onclick="show('home')" class="active">Головна</a>
+        <a onclick="show('about')">Про нас</a>
+        <a onclick="show('contact')">Контакти</a>
+    </nav>
+
+    <main>
+        <section id="home">
+            <div class="container">
+                <h1>КАТАЛОГ ТОВАРІВ</h1>
+                <p>Кава ✅ Засоби чищення ✅ Сиропи ✅ Запчастини ✅</p>
+                <p>---------------------------------------------------------------<p>
+                <p style="margin-top: 3rem; font-size: 1.6rem; font-weight: bolder;">
+                    ЯК ЗАМОВИТИ ?
+                </p>
+                
+                <p class="neon-rainbow">
+                    Зробіть скрін потрібної позиції та надішліть на вайбер
+                </p>☎️ 0️⃣6️⃣8️⃣-1️⃣0️⃣4️⃣-3️⃣4️⃣-0️⃣8️⃣
+                
+                <p style="font-size: 2rem; margin: 1rem 0; color: #ffd700;">
+                    ⬇️⬇️⬇️
+                </p>
+                <p>---------------------------------------------------------------<p>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>Хто ми</h2>
+            <p>Ми створюємо проекти, які говорять самі за себе — без зайвих слів, без компромісів.</p>
+            <p>Чорний — це не просто колір. Це вибір. Золото — це не просто відтінок. Це статус.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Зв’яжіться з нами</h2>
+            <p>Email: <span class="highlight">hello@goldblack.studio</span></p>
+            <p>Telegram: <span class="highlight">@goldblack</span></p>
+            <p style="margin-top: 3rem;">Готові перетворити вашу ідею на легенду?</p>
+        </section>
+    </main>
+
+    <script>
+        function show(id) {
+            document.querySelectorAll('section').forEach(el => el.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+
+            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
