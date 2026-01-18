@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Золотий на чорному</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #0a0a0a;
+            color: #d4af37;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            min-height: 100vh;
+            line-height: 1.4;
+            background-image:
+                url('https://uploads.onecompiler.io/44as4qwkq/44as44gm7/image0.jpeg'),
+                linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.85) 60%);
+            background-repeat: no-repeat;
+            background-position: center 10vh;
+            background-size: auto 13vh, cover;
+            background-attachment: fixed;
+        }
+        nav {
+            background: rgba(0, 0, 0, 0.75);
+            padding: 1.2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #d4af37;
+            text-align: center;
+        }
+        nav a {
+            color: #d4af37;
+            text-decoration: none;
+            margin: 0 1.2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        nav a:hover,
+        nav a.active {
+            color: #f5d76e;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+        }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10rem 2rem 6rem;
+            position: relative;
+            z-index: 20;
+        }
+        h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+        h2 {
+            font-size: 2.2rem;
+            margin: 3rem 0 1.5rem;
+            color: #f5d76e;
+            text-align: center;
+        }
+        p, li {
+            font-size: 1.15rem;
+            max-width: 75ch;
+            margin: 0 auto 1.2rem;
+            color: #e0c070;
+        }
+        .highlight {
+            color: #ffd700;
+            font-weight: 600;
+        }
+        .container {
+            text-align: center;
+        }
+        /* Галерея товарів */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem auto;
+            max-width: 1100px;
+        }
+        .product {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid #d4af37;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            text-align: center;
+            padding: 1rem;
+        }
+        .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+        }
+        .product img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .product h3 {
+            font-size: 1.4rem;
+            margin: 0.5rem 0;
+            color: #ffd700;
+        }
+        .product p {
+            font-size: 1rem;
+            color: #e0c070;
+            margin: 0;
+        }
+        /* Неоновий текст */
+        .neon-rainbow {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #ff00cc, #ffcc00, #33ff00, #00ccff, #cc00ff, #ff00cc);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #ff00cc, 0 0 82px #ff00cc;
+            animation: rainbowFlow 6s linear infinite, neonPulse 1.5s ease-in-out infinite alternate;
+        }
+        @keyframes rainbowFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes neonPulse {
+            from { text-shadow: 0 0 5px #fff, 0 0 8px #fff, 0 0 15px #fff, 0 0 30px #ff00cc; }
+            to { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 60px #ff00cc; }
+        }
+        @media (max-width: 768px) {
+            body { background-size: auto 18vh, cover; }
+            .neon-rainbow { font-size: 1.4rem; }
+            main { padding-top: 8rem; }
+            h1 { font-size: 2.8rem; }
+            .gallery { gap: 1.5rem; }
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+        @media (max-width: 500px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a onclick="show('home')" class="active">Головна</a>
+        <a onclick="show('about')">Про нас</a>
+        <a onclick="show('contact')">Контакти</a>
+    </nav>
+
+    <main>
+        <!-- Головна (все на одній сторінці) -->
+        <section id="home">
+            <div class="container">
+                <h1>КАТАЛОГ ТОВАРІВ</h1>
+                <p>Кава ✅ Засоби чищення ✅ Сиропи ✅ Запчастини ✅</p>
+                <p style="margin: 2rem 0; opacity: 0.7;">---------------------------------------------------------------</p>
+
+                <!-- Блок "ЯК ЗАМОВИТИ ?" тепер вище каталогу -->
+                <p style="margin: 3rem 0 1.5rem; font-size: 1.8rem; font-weight: bolder;">
+                    ЯК ЗАМОВИТИ ?
+                </p>
+
+                <p class="neon-rainbow">
+                    Зробіть скрін потрібної позиції та надішліть на вайбер
+                </p>
+                <p style="font-size: 1.9rem; color: #ffd700; margin: 1.2rem 0;">
+                    ☎️ 0️⃣6️⃣8️⃣-1️⃣0️⃣4️⃣-3️⃣4️⃣-0️⃣8️⃣
+                </p>
+
+                <p style="font-size: 2.8rem; margin: 1.5rem 0 3rem; color: #ffd700;">
+                    ⬇️⬇️⬇️
+                </p>
+
+                <!-- Каталог товарів після блоку замовлення -->
+                <h2>Наш асортимент</h2>
+                <div class="gallery">
+                    <!-- Кава -->
+                    <div class="product">
+                        <img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg" alt="Кава в зернах">
+                        <h3>Кава в зернах</h3>
+                        <p>Арабіка / Робуста / Свіжообсмажена</p>
+                    </div>
+
+                    <!-- Сиропи -->
+                    <div class="product">
+                        <img src="https://images.unsplash.com/photo-1618761711982-0d8f0f2e4e4d" alt="Сиропи для кави">
+                        <h3>Сиропи для кави</h3>
+                        <p>Ваніль, карамель, горіх та інші смаки</p>
+                    </div>
+
+                    <!-- Засоби чищення -->
+                    <div class="product">
+                        <img src="https://images.pexels.com/photos/414262/pexels-photo-414262.jpeg" alt="Засіб для чищення кавомашини">
+                        <h3>Засоби чищення</h3>
+                        <p>Таблиці, порошки, рідини для декальцинації</p>
+                    </div>
+
+                    <!-- Запчастини -->
+                    <div class="product">
+                        <img src="https://images.unsplash.com/photo-1587734195503-904fca47e659" alt="Запчастини для кавомашини">
+                        <h3>Запчастини</h3>
+                        <p>Портфільтри, ущільнювачі, насоси, нагрівачі</p>
+                    </div>
+
+                    <!-- Додавай сюди нові товари за потреби -->
+                </div>
+
+                <p style="margin-top: 4rem; opacity: 0.7;">---------------------------------------------------------------</p>
+            </div>
+        </section>
+
+        <!-- Про нас -->
+        <section id="about">
+            <h2>Хто ми</h2>
+            <p>Ми створюємо проекти, які говорять самі за себе — без зайвих слів, без компромісів.</p>
+            <p>Чорний — це не просто колір. Це вибір. Золото
